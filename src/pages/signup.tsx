@@ -30,10 +30,10 @@ export default function Signup() {
     }, [currentUser, router]);
 
     useEffect(() => {
-        if (isSignUpSuccess) {
+        if (isSignUpSuccess && currentUser) {
             router.push("/mark-interests?page=1").catch(console.error);
         }
-    }, [isSignUpSuccess, router]);
+    }, [isSignUpSuccess, router, currentUser]);
 
     return (
         <>

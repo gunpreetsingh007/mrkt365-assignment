@@ -120,7 +120,7 @@ function useProvideAuth() {
                 mutation: SignUpMutation,
                 variables: { email, password, name },
             });
-            if(result?.data?.signUp?.token) {
+            if (result?.data?.signUp?.token) {
                 setAuthToken(result.data.signUp.token);
                 setCurrentUser(result.data.signUp.user);
                 if (typeof window !== 'undefined') {
@@ -141,6 +141,8 @@ function useProvideAuth() {
     const signOut = () => {
         setAuthToken(null);
         setCurrentUser(null);
+        setIsSignInSuccess(false);
+        setIsSignUpSuccess(false);
         if (typeof window !== 'undefined') {
             localStorage.removeItem('authToken');
             localStorage.removeItem('currentUser');

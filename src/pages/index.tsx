@@ -28,10 +28,10 @@ export default function Login() {
     }, [currentUser, router]);
 
     useEffect(() => {
-        if (isSignInSuccess) {
+        if (isSignInSuccess && currentUser) {
             router.push("/mark-interests?page=1").catch(console.error);
         }
-    }, [isSignInSuccess, router]);
+    }, [isSignInSuccess, router, currentUser]);
 
     return (
         <>
